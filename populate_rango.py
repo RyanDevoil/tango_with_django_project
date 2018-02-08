@@ -24,11 +24,12 @@ def populate():
             "Django": {"pages":django_pages,"views":64,"likes":32},
             "Other Frameworks": {"pages":other_pages,"views":32,"likes":16}}
 
-
+    page_views = 65536
     for cat, cat_data in cats.items():
         c = add_cat(cat, cat_data["views"], cat_data["likes"])
         for p in cat_data["pages"]:
-            add_page(c, p["title"], p["url"])
+            add_page(c, p["title"], p["url"], page_views)
+            page_views = page_views/2
 
 
     for c in Category.objects.all():
