@@ -5,8 +5,12 @@
 <h1> Rango says...</h1>
 </div>
 <div>
+    {% if user.is_authenticated %}
+    Howdy {{ user.username}}!
+    {% else %}
     Hey there partner! <br/>
-    <strong> {{ boldmessage }}</strong><br/>
+    {% endif %}
+    <strong> {{ boldmessage }} </strong><br/>
 </div>
 <h2>Most Liked Categories</h2>
 <div>
